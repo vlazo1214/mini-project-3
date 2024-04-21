@@ -12,11 +12,13 @@ attach(df)
 
 # part 1: simple linear regression
 
+plot(df)
+
 # model
 income_model <- lm(Rating ~ Income, data = df)
 
 # scatterplot
-png('output/income_plot.png')
+pdf('output/income_plot.pdf')
 plot(income_model)
 dev.off()
 
@@ -27,4 +29,7 @@ summary(income_model)
 anova(income_model)
 
 # confidence interval
-confint(income_model)
+confint(income_model, level = 0.95)
+
+# coefficient of correlation
+cor(Income, Rating)
