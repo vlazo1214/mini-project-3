@@ -33,3 +33,26 @@ confint(income_model, level = 0.95)
 
 # coefficient of correlation
 cor(Income, Rating)
+
+# part 2: multiple linear regression
+multi_model <- lm(Rating ~ Income + Age + Education, data = df)
+
+summary(multi_model)
+
+# scatterplot
+pdf('output/multi_plot.pdf')
+plot(multi_model)
+dev.off()
+
+# single linear regression with education and rating
+education_model <- lm(Rating ~ Education, data = df)
+
+# scatterplot
+pdf('output/education_plot.pdf')
+plot(education_model)
+dev.off()
+
+# model summary
+summary(education_model)
+
+
